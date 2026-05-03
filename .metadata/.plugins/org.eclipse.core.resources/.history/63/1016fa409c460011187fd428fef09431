@@ -1,0 +1,18 @@
+/*
+ * ledtask.c
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+
+#include "led_task.h"
+
+void led_task(void *argument)
+{
+    while(1)
+    {
+        HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12);
+        osDelay(500);
+    }
+}

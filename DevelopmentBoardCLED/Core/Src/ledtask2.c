@@ -5,15 +5,19 @@
  *      Author: sohev
  */
 
+#ifndef SRC_LEDTASK2_C_
+#define SRC_LEDTASK2_C_
+
+
 #include "ledtask2.h"
 
-// ← remove #ifndef guard entirely
-
-void led_task(void const *argument)  // ← add const
+void led_task(void *argument)
 {
     while(1)
     {
         HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12);
-        osDelay(200);
+        osDelay(500);
     }
 }
+
+#endif /* SRC_LEDTASK2_C_ */

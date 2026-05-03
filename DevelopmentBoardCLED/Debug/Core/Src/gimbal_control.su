@@ -1,4 +1,0 @@
-../Core/Src/gimbal_control.c:32:13:PID_Init	32	static
-../Core/Src/gimbal_control.c:47:14:PID_Calc	24	static
-../Core/Src/gimbal_control.c:70:14:angle_error	24	static
-../Core/Src/gimbal_control.c:78:6:gimbal_control	56	static
