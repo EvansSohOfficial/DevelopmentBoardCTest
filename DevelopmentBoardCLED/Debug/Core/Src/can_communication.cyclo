@@ -1,0 +1,3 @@
+../Core/Src/can_communication.c:22:6:CAN1_Init_Filters	1
+../Core/Src/can_communication.c:41:6:GM6020_SendControl	1
+../Core/Src/can_communication.c:67:6:HAL_CAN_RxFifo0MsgPendingCallback	2

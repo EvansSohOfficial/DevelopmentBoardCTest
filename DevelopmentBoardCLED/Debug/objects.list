@@ -1,4 +1,6 @@
+"./Core/Src/can_communication.o"
 "./Core/Src/freertos.o"
+"./Core/Src/gimbal_control.o"
 "./Core/Src/ledtask2.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

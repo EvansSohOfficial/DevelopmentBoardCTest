@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ledtask2.h"
+#include "gimbal_control.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +56,11 @@ const osThreadAttr_t LEDTask2_attributes = {
     .name = "LEDTask2",
     .stack_size = 128 * 4,
     .priority = (osPriority_t) osPriorityBelowNormal,
+};
+const osThreadAttr_t GimbalTask_attributes = {
+    .name = "GimbalTask",
+    .stack_size = 1024 * 4,
+    .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE END PV */
 
@@ -133,6 +139,7 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   osThreadNew(led_task, NULL, &LEDTask2_attributes);
+  osThreadNew(gimbal_control, NULL, &GimbalTask_attributes);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -250,7 +257,7 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -264,7 +271,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
-
+  GPIO_InitStruct.Pin       = GPIO_PIN_0 | GPIO_PIN_1;
+  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull      = GPIO_NOPULL;
+  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 

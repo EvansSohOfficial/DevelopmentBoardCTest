@@ -1,0 +1,90 @@
+/*
+ * gimbal_control.c
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+#include "gimbal_control.h"
+
+#define YAW_POSITION_KP        15.0f
+#define YAW_POSITION_MAX_OUT  300.0f
+
+#define YAW_SPEED_KP         1800.0f
+#define YAW_SPEED_KI           20.0f
+#define YAW_SPEED_KD            0.0f
+#define YAW_SPEED_MAX_OUT   25000.0f
+#define YAW_SPEED_MAX_I      5000.0f
+
+static PID_t yaw_spd_pid;
+static uint16_t target_angle = 4096;
+
+static void PID_Init(PID_t *pid,
+                     float kp, float ki, float kd,
+                     float max_out, float max_i)
+{
+    pid->kp           = kp;
+    pid->ki           = ki;
+    pid->kd           = kd;
+    pid->max_output   = max_out;
+    pid->max_integral = max_i;
+    pid->error        = 0.0f;
+    pid->last_error   = 0.0f;
+    pid->integral     = 0.0f;
+    pid->output       = 0.0f;
+}
+
+static float PID_Calc(PID_t *pid, float ref, float measure)
+{
+    pid->last_error = pid->error;
+    pid->error      = ref - measure;
+
+    pid->integral  += pid->error;
+    if (pid->integral >  pid->max_integral) pid->integral =  pid->max_integral;
+    if (pid->integral < -pid->max_integral) pid->integral = -pid->max_integral;
+
+    pid->output = pid->kp * pid->error
+                + pid->ki * pid->integral
+                + pid->kd * (pid->error - pid->last_error);
+
+    if (pid->output >  pid->max_output) pid->output =  pid->max_output;
+    if (pid->output < -pid->max_output) pid->output = -pid->max_output;
+
+    return pid->output;
+}
+
+static float angle_error(uint16_t target, uint16_t current)
+{
+    float err = (float)target - (float)current;
+    if (err >  4096.0f) err -= 8192.0f;
+    if (err < -4096.0f) err += 8192.0f;
+    return err;
+}
+
+void gimbal_control(void *argument)  // ← V2 signature
+{
+    PID_Init(&yaw_spd_pid,
+             YAW_SPEED_KP, YAW_SPEED_KI, YAW_SPEED_KD,
+             YAW_SPEED_MAX_OUT, YAW_SPEED_MAX_I);
+
+    osDelay(100);
+    CAN1_Init_Filters();
+
+    while(1)
+    {
+        // Outer P loop
+        float err = angle_error(target_angle, gm6020_feedback[0].angle);
+        float speed_setpoint = err * YAW_POSITION_KP;
+        if (speed_setpoint >  YAW_POSITION_MAX_OUT) speed_setpoint =  YAW_POSITION_MAX_OUT;
+        if (speed_setpoint < -YAW_POSITION_MAX_OUT) speed_setpoint = -YAW_POSITION_MAX_OUT;
+
+        // Inner PID loop
+        float voltage_out = PID_Calc(&yaw_spd_pid,
+                                     speed_setpoint,
+                                     (float)gm6020_feedback[0].rpm);
+
+        GM6020_SendControl(&hcan1, (int16_t)voltage_out, 0, 0, 0);
+
+        osDelay(1);
+    }
+}
