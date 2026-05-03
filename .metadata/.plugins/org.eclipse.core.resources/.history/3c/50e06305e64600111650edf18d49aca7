@@ -1,0 +1,75 @@
+/*
+ * can_communication.c
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+
+#include "can_communication.h"
+
+GM6020_Feedback_t gm6020_feedback[4] = {0};
+
+void CAN1_Init_Filters(void)
+{
+    CAN_FilterTypeDef filter;
+    filter.FilterBank           = 0;
+    filter.FilterMode           = CAN_FILTERMODE_IDMASK;
+    filter.FilterScale          = CAN_FILTERSCALE_32BIT;
+    filter.FilterIdHigh         = 0x0000;
+    filter.FilterIdLow          = 0x0000;
+    filter.FilterMaskIdHigh     = 0x0000;
+    filter.FilterMaskIdLow      = 0x0000;
+    filter.FilterFIFOAssignment = CAN_RX_FIFO0;
+    filter.FilterActivation     = ENABLE;
+    HAL_CAN_ConfigFilter(&hcan1, &filter);
+
+    HAL_CAN_Start(&hcan1);
+    HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+}
+
+void GM6020_SendControl(CAN_HandleTypeDef *hcan,
+                        int16_t motor1, int16_t motor2,
+                        int16_t motor3, int16_t motor4)
+{
+    CAN_TxHeaderTypeDef tx_header;
+    uint8_t tx_data[8];
+    uint32_t tx_mailbox;
+
+    tx_header.StdId              = 0x1FF;
+    tx_header.IDE                = CAN_ID_STD;
+    tx_header.RTR                = CAN_RTR_DATA;
+    tx_header.DLC                = 8;
+    tx_header.TransmitGlobalTime = DISABLE;
+
+    tx_data[0] = (motor1 >> 8) & 0xFF;
+    tx_data[1] =  motor1       & 0xFF;
+    tx_data[2] = (motor2 >> 8) & 0xFF;
+    tx_data[3] =  motor2       & 0xFF;
+    tx_data[4] = (motor3 >> 8) & 0xFF;
+    tx_data[5] =  motor3       & 0xFF;
+    tx_data[6] = (motor4 >> 8) & 0xFF;
+    tx_data[7] =  motor4       & 0xFF;
+
+    HAL_CAN_AddTxMessage(hcan, &tx_header, tx_data, &tx_mailbox);
+}
+
+// CAN receive callback - called automatically by HAL
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    CAN_RxHeaderTypeDef rx_header;
+    uint8_t rx_data[8];
+
+    if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data) == HAL_OK)
+    {
+        // GM6020 feedback IDs: 0x205 to 0x208
+        if (rx_header.StdId >= 0x205 && rx_header.StdId <= 0x208)
+        {
+            uint8_t idx = rx_header.StdId - 0x205; // 0 to 3
+            gm6020_feedback[idx].angle       = (rx_data[0] << 8) | rx_data[1];
+            gm6020_feedback[idx].rpm         = (rx_data[2] << 8) | rx_data[3];
+            gm6020_feedback[idx].torque      = (rx_data[4] << 8) | rx_data[5];
+            gm6020_feedback[idx].temperature =  rx_data[6];
+        }
+    }
+}

@@ -29,6 +29,18 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 
+#include "stm32f4xx_ll_tim.h"
+#include "stm32f4xx_ll_bus.h"
+#include "stm32f4xx_ll_cortex.h"
+#include "stm32f4xx_ll_rcc.h"
+#include "stm32f4xx_ll_system.h"
+#include "stm32f4xx_ll_utils.h"
+#include "stm32f4xx_ll_pwr.h"
+#include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_ll_dma.h"
+
+#include "stm32f4xx_ll_exti.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -57,6 +69,29 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LASER_GPIO_Pin GPIO_PIN_8
+#define LASER_GPIO_GPIO_Port GPIOC
+#define IST_RST_Pin GPIO_PIN_6
+#define IST_RST_GPIO_Port GPIOG
+#define IMU_HEAT_TIM_Pin GPIO_PIN_6
+#define IMU_HEAT_TIM_GPIO_Port GPIOF
+#define GREEN_LED_TIM_Pin GPIO_PIN_12
+#define GREEN_LED_TIM_GPIO_Port GPIOH
+#define IST_INT_Pin GPIO_PIN_3
+#define IST_INT_GPIO_Port GPIOG
+#define IST_INT_EXTI_IRQn EXTI3_IRQn
+#define RED_LED_TIM_Pin GPIO_PIN_11
+#define RED_LED_TIM_GPIO_Port GPIOH
+#define BLUE_LED_TIM_Pin GPIO_PIN_10
+#define BLUE_LED_TIM_GPIO_Port GPIOH
+#define BUZZER_Pin GPIO_PIN_14
+#define BUZZER_GPIO_Port GPIOD
+#define ACC_INT_Pin GPIO_PIN_4
+#define ACC_INT_GPIO_Port GPIOC
+#define ACC_INT_EXTI_IRQn EXTI4_IRQn
+#define GYRO_INT_Pin GPIO_PIN_5
+#define GYRO_INT_GPIO_Port GPIOC
+#define GYRO_INT_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 

@@ -1,0 +1,58 @@
+/*
+ * gimbal_control.c
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+#ifndef INC_GIMBAL_CONTROL_C_
+#define INC_GIMBAL_CONTROL_C_
+
+#include "gimbal_control.h"
+#include "can_communication.h"
+
+extern CAN_HandleTypeDef hcan1;
+
+// Target angle in raw units (0-8191)
+static int16_t target_angle = 4096; // 180 degrees
+
+// Simple P controller
+static int16_t position_control(uint16_t current, uint16_t target)
+{
+    float kP = 10.0f;
+    int16_t error = (int16_t)target - (int16_t)current;
+
+    // Handle wrap-around (0-8191 is a full circle)
+    if (error > 4096)  error -= 8192;
+    if (error < -4096) error += 8192;
+
+    int16_t output = (int16_t)(kP * error);
+
+    // Clamp output to GM6020 max voltage control range
+    if (output >  1000) output =  1000;
+    if (output < -1000) output = -1000;
+
+    return output;
+}
+
+void gimbal_control(void *argument)
+{
+    // Wait for CAN to be ready
+    HAL_Delay(100);
+    CAN1_Init_Filters();
+
+    while(1)
+    {
+        int16_t control = position_control(
+            gm6020_feedback[0].angle,
+            target_angle
+        );
+
+        // Send control to motor 1 only (others set to 0)
+        GM6020_SendControl(&hcan1, control, 0, 0, 0);
+
+        HAL_Delay(1); // 1ms = 1000Hz control loop
+    }
+}
+
+#endif /* INC_GIMBAL_CONTROL_C_ */

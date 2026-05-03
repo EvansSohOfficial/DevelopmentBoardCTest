@@ -9,8 +9,8 @@
 #define LED_TASK2_H
 
 #include "stm32f4xx_hal.h"
-#include "cmsis_os2.h"
+#include "cmsis_os.h"
 
-void led_task(void *argument);
+void led_task(void const *argument);  // ← add const
 
-#endif/* INC_LEDTASK2_H_ */
+#endif /* LED_TASK2_H */

@@ -3,7 +3,9 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="os"/>
+		<item value="extern"/>
+		<item value="RCC"/>
 		<item value="osk"/>
+		<item value="os"/>
 	</list>
 </section>

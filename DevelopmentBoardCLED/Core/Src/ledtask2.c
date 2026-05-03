@@ -5,13 +5,11 @@
  *      Author: sohev
  */
 
-#ifndef SRC_LEDTASK2_C_
-#define SRC_LEDTASK2_C_
-
-
 #include "ledtask2.h"
 
-void led_task(void *argument)
+// ← remove #ifndef guard entirely
+
+void led_task(void const *argument)  // ← add const
 {
     while(1)
     {
@@ -19,5 +17,3 @@ void led_task(void *argument)
         osDelay(200);
     }
 }
-
-#endif /* SRC_LEDTASK2_C_ */

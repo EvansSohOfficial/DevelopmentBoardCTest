@@ -1,0 +1,30 @@
+/*
+ * can_communication.h
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+#ifndef INC_CAN_COMMUNICATION_H_
+#define INC_CAN_COMMUNICATION_H_
+
+#include "stm32f4xx_hal.h"
+
+#include "can.h"
+
+// GM6020 feedback structure
+typedef struct {
+    uint16_t angle;        // 0 - 8191 (maps to 0-360 degrees)
+    int16_t  rpm;          // RPM
+    int16_t  torque;       // torque current
+    uint8_t  temperature;  // celsius
+} GM6020_Feedback_t;
+
+extern GM6020_Feedback_t gm6020_feedback[4]; // up to 4 motors
+
+void CAN1_Init_Filters(void);
+void GM6020_SendControl(CAN_HandleTypeDef *hcan,
+                        int16_t motor1, int16_t motor2,
+                        int16_t motor3, int16_t motor4);
+
+#endif /* INC_CAN_COMMUNICATION_H_ */

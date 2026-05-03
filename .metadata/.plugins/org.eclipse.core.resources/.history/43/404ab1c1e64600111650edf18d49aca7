@@ -1,0 +1,15 @@
+/*
+ * gimbal_control.h
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+#ifndef GIMBAL_CONTROL_H_
+#define GIMBAL_CONTROL_H_
+
+#include "stm32f4xx_hal.h"
+
+void gimbal_control(void *argument);
+
+#endif /* GIMBAL_CONTROL_H_ */
