@@ -780,3 +780,87 @@
 2026-05-03 20:42:18,746 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1572mS.
 2026-05-03 20:42:18,747 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
 2026-05-03 20:42:18,750 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2026-05-03 21:15:23,559 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,504x265,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:15:25,933 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:15:26,424 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:16:31,097 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x257,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:16:32,860 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:16:37,218 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-05-03 21:16:38,605 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 836411336 Bytes (1073741824)
+2026-05-03 21:16:38,690 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 862625736 Bytes (1073741824)
+2026-05-03 21:16:39,177 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 904568776 Bytes (1073741824)
+2026-05-03 21:16:39,621 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: FREERTOS
+2026-05-03 21:16:39,621 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: CAN
+2026-05-03 21:16:39,621 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-05-03 21:16:39,621 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-05-03 21:16:39,622 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-05-03 21:16:39,622 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-05-03 21:16:39,623 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2026-05-03 21:16:39,725 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\license.tmp_save
+2026-05-03 21:16:39,999 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\license.tmp
+2026-05-03 21:16:40,020 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\gpio.tmp_save
+2026-05-03 21:16:40,203 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\gpio.tmp
+2026-05-03 21:16:40,289 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-05-03 21:16:40,300 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_inc.tmp_save
+2026-05-03 21:16:40,414 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_inc.tmp
+2026-05-03 21:16:40,417 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-05-03 21:16:40,520 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelInit.tmp
+2026-05-03 21:16:40,524 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-05-03 21:16:40,597 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelStart.tmp
+2026-05-03 21:16:40,601 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_typedefs.tmp_save
+2026-05-03 21:16:40,676 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_typedefs.tmp
+2026-05-03 21:16:40,679 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_vars.tmp_save
+2026-05-03 21:16:40,761 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_vars.tmp
+2026-05-03 21:16:40,767 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_pfp.tmp_save
+2026-05-03 21:16:40,835 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_pfp.tmp
+2026-05-03 21:16:40,840 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-05-03 21:16:40,918 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_obj_creat.tmp
+2026-05-03 21:16:40,922 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_default_thread.tmp_save
+2026-05-03 21:16:40,984 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_default_thread.tmp
+2026-05-03 21:16:40,989 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_threads.tmp_save
+2026-05-03 21:16:41,057 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_threads.tmp
+2026-05-03 21:16:41,069 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-05-03 21:16:41,079 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_inc.tmp_save
+2026-05-03 21:16:41,151 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_inc.tmp
+2026-05-03 21:16:41,158 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelInit.tmp_save
+2026-05-03 21:16:41,217 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelInit.tmp
+2026-05-03 21:16:41,224 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelStart.tmp_save
+2026-05-03 21:16:41,294 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_kernelStart.tmp
+2026-05-03 21:16:41,302 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_typedefs.tmp_save
+2026-05-03 21:16:41,369 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_typedefs.tmp
+2026-05-03 21:16:41,391 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_vars.tmp_save
+2026-05-03 21:16:41,446 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_vars.tmp
+2026-05-03 21:16:41,453 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_pfp.tmp_save
+2026-05-03 21:16:41,497 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_pfp.tmp
+2026-05-03 21:16:41,513 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_obj_creat.tmp_save
+2026-05-03 21:16:41,566 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_obj_creat.tmp
+2026-05-03 21:16:41,573 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_default_thread.tmp_save
+2026-05-03 21:16:41,621 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_default_thread.tmp
+2026-05-03 21:16:41,629 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_threads.tmp_save
+2026-05-03 21:16:41,669 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\rtos_threads.tmp
+2026-05-03 21:16:41,686 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\FreeRTOSConfig.h_save
+2026-05-03 21:16:41,757 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\FreeRTOSConfig.h
+2026-05-03 21:16:41,771 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\freertos.c_save
+2026-05-03 21:16:41,819 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\freertos.c
+2026-05-03 21:16:41,845 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_it.c_save
+2026-05-03 21:16:42,046 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_it.c
+2026-05-03 21:16:42,060 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\stm32f4xx_it.h_save
+2026-05-03 21:16:42,125 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\stm32f4xx_it.h
+2026-05-03 21:16:42,147 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_hal_msp.c_save
+2026-05-03 21:16:42,251 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_hal_msp.c
+2026-05-03 21:16:42,257 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\system.tmp_save
+2026-05-03 21:16:42,311 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\MXTmpFiles\system.tmp
+2026-05-03 21:16:42,327 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2026-05-03 21:16:42,389 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\stm32f4xx_hal_timebase_tim.c
+2026-05-03 21:16:42,415 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\stm32f4xx_hal_conf.h_save
+2026-05-03 21:16:42,510 [INFO] CodeEngine:343 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\stm32f4xx_hal_conf.h
+2026-05-03 21:16:42,564 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\main.h_save
+2026-05-03 21:16:42,631 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Inc\main.h
+2026-05-03 21:16:42,646 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\main.c_save
+2026-05-03 21:16:42,767 [INFO] CodeEngine:287 - Generated code: C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\Core\Src\main.c
+2026-05-03 21:16:43,345 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 382mS.
+2026-05-03 21:16:43,350 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2026-05-03 21:16:43,408 [INFO] ConfigFileManager:1590 - The Die is : DIE413
+2026-05-03 21:16:44,564 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 1214mS.
+2026-05-03 21:16:44,566 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 2mS.
+2026-05-03 21:16:44,603 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
