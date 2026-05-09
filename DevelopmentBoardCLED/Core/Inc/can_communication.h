@@ -1,17 +1,10 @@
-/*
- * can_communication.h
- *
- *  Created on: May 3, 2026
- *      Author: sohev
- */
-
 #ifndef INC_CAN_COMMUNICATION_H_
 #define INC_CAN_COMMUNICATION_H_
 
 #include "stm32f4xx_hal.h"
-#include "main.h"
+#include "can.h"               // ← hcan1 and hcan2 already declared here
 
-extern CAN_HandleTypeDef hcan1;
+extern volatile uint32_t can_rx_count;
 
 // ── Motor ID Configuration ──────────────────────────
 #define GM6020_MOTOR_ID         1
@@ -20,16 +13,15 @@ extern CAN_HandleTypeDef hcan1;
 #define GM6020_CONTROL_ID       0x1FF
 // ────────────────────────────────────────────────────
 
-// GM6020 feedback structure
 typedef struct {
-    uint16_t angle;        // current encoder value 0-8191
-    uint16_t last_angle;   // previous encoder value
-    int16_t  rpm;          // RPM
-    int16_t  torque;       // torque current
-    uint8_t  temperature;  // celsius
+    uint16_t angle;
+    uint16_t last_angle;
+    int16_t  rpm;
+    int16_t  torque;
+    uint8_t  temperature;
 } GM6020_Feedback_t;
 
-extern GM6020_Feedback_t gm6020_feedback[4]; // up to 4 motors
+extern GM6020_Feedback_t gm6020_feedback[4];
 
 void CAN1_Init_Filters(void);
 void GM6020_SendControl(CAN_HandleTypeDef *hcan,

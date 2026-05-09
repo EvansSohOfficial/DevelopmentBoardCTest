@@ -1,4 +1,60 @@
-21:26:02 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+03:34:41 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
+../Core/Src/gimbal_control.c: In function 'gimbal_control':
+../Core/Src/gimbal_control.c:3:5: warning: implicit declaration of function 'osDelay' [-Wimplicit-function-declaration]
+    3 |     osDelay(500);
+      |     ^~~~~~~
+../Core/Src/gimbal_control.c:4:5: warning: implicit declaration of function 'CAN1_Init_Filters' [-Wimplicit-function-declaration]
+    4 |     CAN1_Init_Filters();
+      |     ^~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:7:5: warning: implicit declaration of function 'GM6020_SendControl' [-Wimplicit-function-declaration]
+    7 |     GM6020_SendControl(&hcan1, 1000, 0, 0, 0);
+      |     ^~~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:7:25: error: 'hcan1' undeclared (first use in this function)
+    7 |     GM6020_SendControl(&hcan1, 1000, 0, 0, 0);
+      |                         ^~~~~
+../Core/Src/gimbal_control.c:7:25: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/gimbal_control.c:14:9: error: unknown type name 'uint32_t'
+   14 |         uint32_t error = HAL_CAN_GetError(&hcan1);
+      |         ^~~~~~~~
+../Core/Src/gimbal_control.c:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | void gimbal_control(void *argument)
+../Core/Src/gimbal_control.c:14:26: warning: implicit declaration of function 'HAL_CAN_GetError' [-Wimplicit-function-declaration]
+   14 |         uint32_t error = HAL_CAN_GetError(&hcan1);
+      |                          ^~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:15:9: error: unknown type name 'uint32_t'
+   15 |         uint32_t fifo  = HAL_CAN_GetRxFifoFillLevel(&hcan1, CAN_RX_FIFO0);
+      |         ^~~~~~~~
+../Core/Src/gimbal_control.c:15:9: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Core/Src/gimbal_control.c:15:26: warning: implicit declaration of function 'HAL_CAN_GetRxFifoFillLevel' [-Wimplicit-function-declaration]
+   15 |         uint32_t fifo  = HAL_CAN_GetRxFifoFillLevel(&hcan1, CAN_RX_FIFO0);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:15:61: error: 'CAN_RX_FIFO0' undeclared (first use in this function)
+   15 |         uint32_t fifo  = HAL_CAN_GetRxFifoFillLevel(&hcan1, CAN_RX_FIFO0);
+      |                                                             ^~~~~~~~~~~~
+../Core/Src/gimbal_control.c:17:22: error: 'HAL_CAN_ERROR_NONE' undeclared (first use in this function)
+   17 |         if (error != HAL_CAN_ERROR_NONE)
+      |                      ^~~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:20:13: warning: implicit declaration of function 'HAL_GPIO_TogglePin' [-Wimplicit-function-declaration]
+   20 |             HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12);
+      |             ^~~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:20:32: error: 'GPIOH' undeclared (first use in this function)
+   20 |             HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12);
+      |                                ^~~~~
+../Core/Src/gimbal_control.c:20:39: error: 'GPIO_PIN_12' undeclared (first use in this function)
+   20 |             HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12);
+      |                                       ^~~~~~~~~~~
+../Core/Src/gimbal_control.c:26:13: warning: implicit declaration of function 'HAL_GPIO_WritePin' [-Wimplicit-function-declaration]
+   26 |             HAL_GPIO_WritePin(GPIOH, GPIO_PIN_12, GPIO_PIN_SET);
+      |             ^~~~~~~~~~~~~~~~~
+../Core/Src/gimbal_control.c:26:51: error: 'GPIO_PIN_SET' undeclared (first use in this function)
+   26 |             HAL_GPIO_WritePin(GPIOH, GPIO_PIN_12, GPIO_PIN_SET);
+      |                                                   ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/gimbal_control.o] Error 1
+"make -j18 all" terminated with exit code 2. Build might be incomplete.
+03:35:26 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
 make -j18 all 
 arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
 arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,15 +63,112 @@ Finished building target: DevelopmentBoardCLED.elf
 arm-none-eabi-size  DevelopmentBoardCLED.elf 
 arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
    text	   data	    bss	    dec	    hex	filename
-  23656	     96	  20968	  44720	   aeb0	DevelopmentBoardCLED.elf
+  24104	     96	  21008	  45208	   b098	DevelopmentBoardCLED.elf
 Finished building: default.size.stdout
  
 Finished building: DevelopmentBoardCLED.list
  
-21:26:05 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+03:35:38 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
 make -j18 all 
 arm-none-eabi-size  DevelopmentBoardCLED.elf 
    text	   data	    bss	    dec	    hex	filename
-  23656	     96	  20968	  44720	   aeb0	DevelopmentBoardCLED.elf
+  24104	     96	  21008	  45208	   b098	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+03:38:41 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can_communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can_communication.d" -MT"Core/Src/can_communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can_communication.o"
+arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+Finished building: DevelopmentBoardCLED.list
+ 
+03:41:39 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can.d" -MT"Core/Src/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can.o"
+arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+Finished building: DevelopmentBoardCLED.list
+ 
+03:41:42 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+03:44:14 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can.d" -MT"Core/Src/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+Finished building: DevelopmentBoardCLED.list
+ 
+03:44:17 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+03:45:32 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can.d" -MT"Core/Src/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can.o"
+arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+Finished building: DevelopmentBoardCLED.list
+ 
+03:49:49 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can.d" -MT"Core/Src/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can.o"
+arm-none-eabi-gcc "../Core/Src/gimbal_control.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gimbal_control.d" -MT"Core/Src/gimbal_control.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gimbal_control.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+Finished building: default.size.stdout
+ 
+Finished building: DevelopmentBoardCLED.list
+ 
+03:51:56 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+make -j18 all 
+arm-none-eabi-size  DevelopmentBoardCLED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
 Finished building: default.size.stdout
  

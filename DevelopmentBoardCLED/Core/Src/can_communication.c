@@ -7,9 +7,10 @@
 
 #include "can_communication.h"
 
+volatile uint32_t can_rx_count = 0;
+
 GM6020_Feedback_t gm6020_feedback[4] = {0};
 
-// Macro to read motor feedback data efficiently inside ISR
 #define get_motor_measure(ptr, data)                                     \
 {                                                                         \
     (ptr)->last_angle  = (ptr)->angle;                                   \
@@ -69,20 +70,26 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     CAN_RxHeaderTypeDef rx_header;
     uint8_t rx_data[8];
 
-    HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
-
-    switch (rx_header.StdId)
+    if(HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data) == HAL_OK)
     {
-        case 0x205:
-        case 0x206:
-        case 0x207:
-        case 0x208:
+        can_rx_count++;  // ← increment on every frame received
+
+        if(rx_header.DLC == 8)
         {
-            uint8_t idx = rx_header.StdId - 0x205;
-            get_motor_measure(&gm6020_feedback[idx], rx_data);
-            break;
+            switch(rx_header.StdId)
+            {
+                case 0x205:
+                case 0x206:
+                case 0x207:
+                case 0x208:
+                {
+                    uint8_t idx = rx_header.StdId - 0x205;
+                    get_motor_measure(&gm6020_feedback[idx], rx_data);
+                    break;
+                }
+                default:
+                    break;
+            }
         }
-        default:
-            break;
     }
 }

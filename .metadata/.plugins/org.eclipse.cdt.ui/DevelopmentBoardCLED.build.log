@@ -1,10 +1,10 @@
-21:26:05 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+03:51:56 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
 make -j18 all 
 arm-none-eabi-size  DevelopmentBoardCLED.elf 
    text	   data	    bss	    dec	    hex	filename
-  23656	     96	  20968	  44720	   aeb0	DevelopmentBoardCLED.elf
+  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
 Finished building: default.size.stdout
  
 
-21:26:05 Build Finished. 0 errors, 0 warnings. (took 307ms)
+03:51:57 Build Finished. 0 errors, 0 warnings. (took 302ms)
 

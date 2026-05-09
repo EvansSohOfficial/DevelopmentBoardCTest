@@ -1,0 +1,95 @@
+/*
+ * can_communication.c
+ *
+ *  Created on: May 3, 2026
+ *      Author: sohev
+ */
+
+#include "can_communication.h"
+
+GM6020_Feedback_t gm6020_feedback[4] = {0};
+
+CAN_TxHeaderTypeDef TxHeader;
+CAN_RxHeaderTypeDef RxHeader;
+
+uint32_t TxMailBox;
+uint8_t TxData[5];
+uint8_t RxData[5];
+
+// Macro to read motor feedback data efficiently inside ISR
+#define get_motor_measure(ptr, data)                                     \
+{                                                                         \
+    (ptr)->last_angle  = (ptr)->angle;                                   \
+    (ptr)->angle       = (uint16_t)((data)[0] << 8 | (data)[1]);        \
+    (ptr)->rpm         = (int16_t) ((data)[2] << 8 | (data)[3]);        \
+    (ptr)->torque      = (int16_t) ((data)[4] << 8 | (data)[5]);        \
+    (ptr)->temperature = (data)[6];                                      \
+}
+
+void CAN1_Init_Filters(void)
+{
+    CAN_FilterTypeDef filter;
+    filter.FilterBank           = 0;
+    filter.FilterMode           = CAN_FILTERMODE_IDMASK;
+    filter.FilterScale          = CAN_FILTERSCALE_32BIT;
+    filter.FilterIdHigh         = 0x0000;
+    filter.FilterIdLow          = 0x0000;
+    filter.FilterMaskIdHigh     = 0x0000;
+    filter.FilterMaskIdLow      = 0x0000;
+    filter.FilterFIFOAssignment = CAN_RX_FIFO0;
+    filter.FilterActivation     = ENABLE;
+    filter.SlaveStartFilterBank = 14;
+    HAL_CAN_ConfigFilter(&hcan1, &filter);
+
+    HAL_CAN_Start(&hcan1);
+    HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+}
+
+void GM6020_SendControl(CAN_HandleTypeDef *hcan,
+                        int16_t motor1, int16_t motor2,
+                        int16_t motor3, int16_t motor4)
+{
+    CAN_TxHeaderTypeDef tx_header;
+    uint8_t tx_data[8];
+    uint32_t tx_mailbox;
+
+    tx_header.StdId              = GM6020_CONTROL_ID;
+    tx_header.IDE                = CAN_ID_STD;
+    tx_header.RTR                = CAN_RTR_DATA;
+    tx_header.DLC                = 8;
+    tx_header.TransmitGlobalTime = DISABLE;
+
+    tx_data[0] = motor1 >> 8;
+    tx_data[1] = motor1;
+    tx_data[2] = motor2 >> 8;
+    tx_data[3] = motor2;
+    tx_data[4] = motor3 >> 8;
+    tx_data[5] = motor3;
+    tx_data[6] = motor4 >> 8;
+    tx_data[7] = motor4;
+
+    HAL_CAN_AddTxMessage(hcan, &tx_header, tx_data, &tx_mailbox);
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+    CAN_RxHeaderTypeDef rx_header;
+    uint8_t rx_data[8];
+
+    HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
+
+    switch (rx_header.StdId)
+    {
+        case 0x205:
+        case 0x206:
+        case 0x207:
+        case 0x208:
+        {
+            uint8_t idx = rx_header.StdId - 0x205;
+            get_motor_measure(&gm6020_feedback[idx], rx_data);
+            break;
+        }
+        default:
+            break;
+    }
+}

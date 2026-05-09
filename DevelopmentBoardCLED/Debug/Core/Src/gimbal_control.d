@@ -39,7 +39,7 @@ Core/Src/gimbal_control.o: ../Core/Src/gimbal_control.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../Core/Inc/can_communication.h ../Core/Inc/main.h
+ ../Core/Inc/can_communication.h ../Core/Inc/can.h ../Core/Inc/main.h
 ../Core/Inc/gimbal_control.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -81,4 +81,5 @@ Core/Src/gimbal_control.o: ../Core/Src/gimbal_control.c \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Inc/can_communication.h:
+../Core/Inc/can.h:
 ../Core/Inc/main.h:
