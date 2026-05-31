@@ -1,3 +1,11 @@
 gm6020_feedback[0]
 gm6020_feedback
 gm6020_feedback[0].angle
+error
+can_rx_count
+yaw_motor
+yaw
+motor
+g_can_motors
+s_feedback
+voltages

@@ -1,10 +1,17 @@
-03:51:56 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
+17:29:41 **** Incremental Build of configuration Debug for project DevelopmentBoardCLED ****
 make -j18 all 
+arm-none-eabi-gcc "../Core/Src/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/can.d" -MT"Core/Src/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/can.o"
+arm-none-eabi-gcc -o "DevelopmentBoardCLED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sohev\Downloads\DevelopmentBoardCTest\DevelopmentBoardCLED\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DevelopmentBoardCLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DevelopmentBoardCLED.elf
+ 
 arm-none-eabi-size  DevelopmentBoardCLED.elf 
+arm-none-eabi-objdump -h -S DevelopmentBoardCLED.elf  > "DevelopmentBoardCLED.list"
    text	   data	    bss	    dec	    hex	filename
-  24024	     96	  21016	  45136	   b050	DevelopmentBoardCLED.elf
+  25416	    120	  21016	  46552	   b5d8	DevelopmentBoardCLED.elf
 Finished building: default.size.stdout
  
+Finished building: DevelopmentBoardCLED.list
+ 
 
-03:51:57 Build Finished. 0 errors, 0 warnings. (took 302ms)
+17:29:42 Build Finished. 0 errors, 0 warnings. (took 910ms)
 

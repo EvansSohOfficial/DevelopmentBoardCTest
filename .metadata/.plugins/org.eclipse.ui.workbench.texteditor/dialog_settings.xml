@@ -3,8 +3,20 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="MX_GPIO"/>
-		<item value="os"/>
-		<item value="osk"/>
+		<item value="start"/>
+		<item value="startup"/>
+		<item value="CDC_SetRx"/>
+		<item value="CDC_R"/>
+		<item value="voltages"/>
+		<item value="voltages[0]"/>
+		<item value="YAW_MO"/>
+		<item value="HAL_NVIC"/>
+		<item value="_NVICHAL"/>
+		<item value="loop"/>
+		<item value="ID"/>
+		<item value="YAW_ID"/>
+		<item value="YAW"/>
+		<item value="error"/>
+		<item value="hcan1"/>
 	</list>
 </section>

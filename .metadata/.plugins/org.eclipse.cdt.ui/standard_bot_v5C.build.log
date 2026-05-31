@@ -1,0 +1,10 @@
+18:13:53 **** Incremental Build of configuration Debug for project standard_bot_v5C ****
+make -j18 all 
+arm-none-eabi-size  standard_bot_v5C.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 162072	    744	 121160	 283976	  45548	standard_bot_v5C.elf
+Finished building: default.size.stdout
+ 
+
+18:13:54 Build Finished. 0 errors, 0 warnings. (took 547ms)
+
