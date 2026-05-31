@@ -1689,3 +1689,18 @@ java.lang.Exception: Resource '/clean_devC' does not exist.
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-05-28 12:22:00.910
 !MESSAGE Indexed 'clean_devC' (70 sources, 333 headers) in 21.5 sec: 30,879 declarations; 142,990 references; 1 unresolved inclusions; 341 syntax errors; 1,203 unresolved names (0.69%)
+!SESSION 2026-06-01 06:59:26.590 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_SG
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-06-01 07:00:20.680
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-06-01 07:00:20.683
+!MESSAGE Log4j2 initialized with config file C:\Users\sohev\Downloads\DevelopmentBoardCTest\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-06-01 07:00:34.595
+!MESSAGE Started RMI Server, listening on port 41337
